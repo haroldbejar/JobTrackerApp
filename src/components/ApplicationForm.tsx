@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Application } from "../interfaces/Application";
+import { Application, applicationStatuses } from "../interfaces/Application";
 import { useAppDispatch } from "../hooks/hooks";
 import {
   addApplication,
@@ -103,15 +103,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
         onChange={handleChange}
         className="block w-full p-2 border mb-2"
       >
-        {[
-          "Enviada",
-          "Contestada",
-          "Entrevista Inicial",
-          "Proceso de Pruebas",
-          "Entrevista Técnica",
-          "Otras Entrevistas",
-          "Finalista",
-        ].map((status) => (
+        {applicationStatuses.map((status) => (
           <option key={status} value={status}>
             {status}
           </option>

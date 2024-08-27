@@ -13,5 +13,15 @@ export type ApplicationStatus =
   | "Entrevista Inicial"
   | "Proceso de Pruebas"
   | "Entrevista Técnica"
-  | "Otras Técnica"
+  | "Otras Entrevistas"
   | "Finalista";
+
+export const applicationStatuses: ApplicationStatus[] = [
+  "Enviada",
+  "Contestada",
+  "Entrevista Inicial",
+  "Proceso de Pruebas",
+  "Entrevista Técnica",
+  "Otras Entrevistas",
+  "Finalista",
+];
