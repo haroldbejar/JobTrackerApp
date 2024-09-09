@@ -5,6 +5,7 @@ import { Application } from "./interfaces/Application";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { selectAuth, logout } from "./redux/slices/AuthSlice";
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +17,8 @@ const App: React.FC = () => {
 
   const [editingApplication, setEditingApplication] =
     useState<Application | null>(null);
+
+  const [showRegister, setShowRegister] = useState(false);
 
   return (
     <div className="container mx-auto p-4">
@@ -37,8 +40,21 @@ const App: React.FC = () => {
           />
           <ApplicationTable setEditingApplication={setEditingApplication} />
         </>
+      ) : showRegister ? (
+        <RegisterForm />
       ) : (
-        <LoginForm />
+        <>
+          <LoginForm />
+          <p className="mt-4">
+            ¿No tienes una cuenta?{" "}
+            <button
+              onClick={() => setShowRegister(true)}
+              className="text-blue-500 hover:underline"
+            >
+              Registrarse
+            </button>
+          </p>
+        </>
       )}
     </div>
   );
