@@ -25,6 +25,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
     skills: "",
     date: "",
     status: "Enviada",
+    description: "",
   });
 
   useEffect(() => {
@@ -34,7 +35,9 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
   }, [editingApplication]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -58,6 +61,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
       skills: "",
       date: "",
       status: "Enviada",
+      description: "",
     });
   };
 
@@ -109,6 +113,13 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </option>
         ))}
       </select>
+      <textarea
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        className="block w-full p-2 border mb-2"
+      />
+
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
         {editingApplication ? "Actualizar" : "Agregar"}
       </button>

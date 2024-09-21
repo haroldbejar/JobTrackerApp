@@ -5,6 +5,7 @@ export interface Application {
   skills: string;
   date: string;
   status: ApplicationStatus;
+  description: string;
 }
 
 export type ApplicationStatus =
